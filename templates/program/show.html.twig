@@ -1,22 +1,14 @@
 {% extends 'base.html.twig' %}
 
-
-{% block title %}Série #{{ program.id }}{% endblock %}
+{% extends 'base.html.twig' %}
 {% block body %}
-
-    <div class="media">
-
-        <img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">
-       <div class="media-body">
-
-            <h1 class="mt-0">{{ program.title }}</h1>
-            <p>{{ program.summary }}</p>
-            <p>Catégorie : {{ program.category.name }}</p>
-
-        </div>
+<h1>Film numéro {{ id }}.</h1>
+<div class="card m-5" style="width: 18rem; margin-left: 2rem; margin-right: 2rem">
+  <img class="card-img-top" style="height: 20rem;" src="{{program.poster}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{program.title}}</h5>
+    <p class="card-text" style="height: 5rem; font-size: 0.7rem;">{{program.summary}}</p>
+    <a href="{{ path("program_show", { id: program.id }) }}" class="btn btn-primary">Voir la fiche</a>
   </div>
-
-    <a href="{{ path('program_index') }}">
-        Retour à la liste des programmes
-    </a>
-{% endblock %}
+</div>
+{% endblock %} 
